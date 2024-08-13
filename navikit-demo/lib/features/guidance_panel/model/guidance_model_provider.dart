@@ -21,13 +21,14 @@ final class GuidanceModelProvider {
     (isGuidanceActive, isSimulationActive, currentRoute, roadName, roadFlags,
         location) {
       return GuidanceModel(
-          isGuidanceActive: isGuidanceActive,
-          isSimulationActive: isSimulationActive,
-          roadName: roadName,
-          roadFlags: roadFlags,
-          location: location,
-          distanceLeft: currentRoute?.distanceLeft(),
-          timeWithTraffic: currentRoute?.timeWithTraffic());
+        isGuidanceActive: isGuidanceActive,
+        isSimulationActive: isSimulationActive,
+        roadName: roadName,
+        roadFlags: roadFlags,
+        location: location,
+        distanceLeft: currentRoute?.distanceLeft(),
+        timeWithTraffic: currentRoute?.timeWithTraffic(),
+      );
     },
   ).share();
 

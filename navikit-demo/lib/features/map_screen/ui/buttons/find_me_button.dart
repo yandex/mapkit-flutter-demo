@@ -5,28 +5,29 @@ import 'map_control_button.dart';
 
 final class FindMeButton extends StatelessWidget {
   final Stream<bool?> isGuidanceActive;
-  final void Function() defaultAction;
-  final void Function() actionInGuidanceMode;
+  final VoidCallback defaultAction;
+  final VoidCallback actionInGuidanceMode;
 
-  FindMeButton(
-      {super.key,
-      required Stream<GuidanceModel> guidanceModel,
-      required this.defaultAction,
-      required this.actionInGuidanceMode})
-      : isGuidanceActive = guidanceModel.map((it) => it.isGuidanceActive);
+  FindMeButton({
+    super.key,
+    required Stream<GuidanceModel> guidanceModel,
+    required this.defaultAction,
+    required this.actionInGuidanceMode,
+  }) : isGuidanceActive = guidanceModel.map((it) => it.isGuidanceActive);
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-        stream: isGuidanceActive,
-        builder: (context, isGuidanceActive) {
-          return MapControlButton(
-            icon: Icons.my_location_outlined,
-            backgroundColor: Theme.of(context).colorScheme.onSecondary,
-            onPressed: isGuidanceActive.data == true
-                ? actionInGuidanceMode
-                : defaultAction,
-          );
-        });
+      stream: isGuidanceActive,
+      builder: (context, isGuidanceActive) {
+        return MapControlButton(
+          icon: Icons.my_location_outlined,
+          backgroundColor: Theme.of(context).colorScheme.onSecondary,
+          onPressed: isGuidanceActive.data == true
+              ? actionInGuidanceMode
+              : defaultAction,
+        );
+      },
+    );
   }
 }

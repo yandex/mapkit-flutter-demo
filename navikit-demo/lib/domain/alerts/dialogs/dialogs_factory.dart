@@ -1,20 +1,22 @@
+import 'package:flutter/foundation.dart';
+
 abstract interface class DialogsFactory {
   void showPermissionRequestDialog({
     required String description,
-    required void Function() primaryAction,
+    required VoidCallback primaryAction,
   });
 
   void showRequestToPointDialog({
-    required void Function() primaryAction,
+    required VoidCallback primaryAction,
   });
 
   void showRequestPointDialog({
-    required void Function() onToClicked,
-    required void Function() onViaClicked,
-    required void Function() onFromClicked,
+    required VoidCallback onToClicked,
+    required VoidCallback onViaClicked,
+    required VoidCallback onFromClicked,
   });
 
   void showCancelGuidanceDialog({
-    required void Function() primaryAction,
+    required VoidCallback primaryAction,
   });
 }

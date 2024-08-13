@@ -15,7 +15,8 @@ final class CameraManagerImpl implements CameraManager {
 
   final _cameraPosition = BehaviorSubject<CameraPosition>();
   late final _cameraPositionListener = CameraPositionListenerImpl(
-      (cameraPosition) => _cameraPosition.add(cameraPosition));
+    (cameraPosition) => _cameraPosition.add(cameraPosition),
+  );
 
   StreamSubscription<Location?>? _locationSubscription;
   Location? _location;
@@ -42,12 +43,18 @@ final class CameraManagerImpl implements CameraManager {
           ? _mapDefaultZoom
           : cameraPosition.zoom;
 
-      final newCameraPosition = CameraPosition(location.position,
-          zoom: newZoom, azimuth: cameraPosition.azimuth, tilt: 0.0);
+      final newCameraPosition = CameraPosition(
+        location.position,
+        zoom: newZoom,
+        azimuth: cameraPosition.azimuth,
+        tilt: 0.0,
+      );
 
       map.moveWithAnimation(
-          newCameraPosition, CameraAnimations.defaultAnimation,
-          cameraCallback: MapCameraCallback(onMoveFinished: (_) {}));
+        newCameraPosition,
+        CameraAnimations.defaultAnimation,
+        cameraCallback: MapCameraCallback(onMoveFinished: (_) {}),
+      );
     });
   }
 
@@ -72,13 +79,20 @@ final class CameraManagerImpl implements CameraManager {
   void changeZoomByStep(ZoomStep step) {
     final stepValue = (step == ZoomStep.plus) ? _mapZoomStep : -_mapZoomStep;
 
-    final newCameraPosition = _mapWindow.map.cameraPosition.let((it) =>
-        CameraPosition(it.target,
-            zoom: it.zoom + stepValue, azimuth: it.azimuth, tilt: it.tilt));
+    final newCameraPosition = _mapWindow.map.cameraPosition.let(
+      (it) => CameraPosition(
+        it.target,
+        zoom: it.zoom + stepValue,
+        azimuth: it.azimuth,
+        tilt: it.tilt,
+      ),
+    );
 
     _mapWindow.map.moveWithAnimation(
-        newCameraPosition, CameraAnimations.defaultAnimation,
-        cameraCallback: MapCameraCallback(onMoveFinished: (_) {}));
+      newCameraPosition,
+      CameraAnimations.defaultAnimation,
+      cameraCallback: MapCameraCallback(onMoveFinished: (_) {}),
+    );
   }
 
   @override

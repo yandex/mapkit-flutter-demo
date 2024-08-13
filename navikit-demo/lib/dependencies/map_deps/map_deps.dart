@@ -31,9 +31,12 @@ final class MapDepsScope implements MapDeps {
       RoadEventsLayerDefaultStyleProvider();
 
   late final _roadEventsLayer = mapkit.createRouteRoadEventsLayer(
-      mapWindow, _roadEventsDefaultStyleProvider);
-  late final _navigationStyleManager =
-      NavigationStyleManagerImpl(_automotiveNavigationStyleProvider);
+    mapWindow,
+    _roadEventsDefaultStyleProvider,
+  );
+  late final _navigationStyleManager = NavigationStyleManagerImpl(
+    _automotiveNavigationStyleProvider,
+  );
 
   MapDepsScope(this.mapWindow, this._navigation, this._locationManager);
 
@@ -45,7 +48,11 @@ final class MapDepsScope implements MapDeps {
 
   @override
   late final navigationLayerManager = NavigationLayerManagerImpl(
-      mapWindow, _roadEventsLayer, _navigationStyleManager, _navigation);
+    mapWindow,
+    _roadEventsLayer,
+    _navigationStyleManager,
+    _navigation,
+  );
 
   @override
   late final mapInputManager = MapInputManagerImpl();

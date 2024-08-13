@@ -13,8 +13,9 @@ final class SimulationManagerImpl implements SimulationManager {
   LocationSimulator? _locationSimulator;
   var _simulationSpeed = 75.0.toMetersPerSecond();
 
-  late final _locationSimulatorListener =
-      LocationSimulatorListenerImpl(stopSimulation);
+  late final _locationSimulatorListener = LocationSimulatorListenerImpl(
+    stopSimulation,
+  );
 
   @override
   Stream<bool> get simulationActive => _simulationActive;

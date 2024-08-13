@@ -14,13 +14,12 @@ final class DialogProviderImpl implements DialogProvider {
   bool showCommonDialog(String description, ButtonTextsWithActions buttons) {
     return _context?.let((it) {
           showDialog(
-              context: it,
-              builder: (BuildContext context) {
-                return CommonDialog(
-                  descriptionText: description,
-                  buttons: buttons,
-                );
-              });
+            context: it,
+            builder: (BuildContext context) => CommonDialog(
+              descriptionText: description,
+              buttons: buttons,
+            ),
+          );
           return true;
         }) ??
         false;

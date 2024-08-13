@@ -4,7 +4,7 @@ import 'package:navikit_flutter_demo/features/map_screen/ui/buttons/map_control_
 
 final class OverviewRouteButton extends StatelessWidget {
   final Stream<bool?> isGuidanceActive;
-  final void Function()? onPressed;
+  final VoidCallback? onPressed;
 
   OverviewRouteButton({
     super.key,
@@ -15,17 +15,18 @@ final class OverviewRouteButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-        stream: isGuidanceActive,
-        builder: (context, isGuidanceActive) {
-          if (isGuidanceActive.data == true) {
-            return MapControlButton(
-              icon: Icons.route_outlined,
-              backgroundColor: Theme.of(context).colorScheme.onSecondary,
-              onPressed: onPressed,
-            );
-          } else {
-            return const SizedBox.shrink();
-          }
-        });
+      stream: isGuidanceActive,
+      builder: (context, isGuidanceActive) {
+        if (isGuidanceActive.data == true) {
+          return MapControlButton(
+            icon: Icons.route_outlined,
+            backgroundColor: Theme.of(context).colorScheme.onSecondary,
+            onPressed: onPressed,
+          );
+        } else {
+          return const SizedBox.shrink();
+        }
+      },
+    );
   }
 }

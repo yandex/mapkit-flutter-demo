@@ -75,7 +75,11 @@ final class NavigationLayerManagerImpl implements NavigationLayerManager {
       _roadEventsLayer.setRoadEventVisibleOnRoute(tag, on: true);
     }
     _navigationLayer = NavigationLayerFactory.createNavigationLayer(
-        _mapWindow, _roadEventsLayer, _navigationStyleManager, _navigation);
+      _mapWindow,
+      _roadEventsLayer,
+      _navigationStyleManager,
+      _navigation,
+    );
     _addAllListeners();
   }
 
@@ -87,13 +91,14 @@ final class NavigationLayerManagerImpl implements NavigationLayerManager {
         .also((it) => _balloonViewListener = it);
 
     final navigationLayerListener = NavigationLayerListenerImpl(
-            _navigationLayer,
-            onSelectedRouteChanged: (route) => _currentDrivingRoute = route)
-        .also((it) => _navigationLayerListener = it);
+      _navigationLayer,
+      onSelectedRouteChanged: (route) => _currentDrivingRoute = route,
+    ).also((it) => _navigationLayerListener = it);
 
     final cameraListener = CameraListenerImpl(() {
-      _isCameraFollowingMode
-          .add(_navigationLayer.camera.cameraMode() == CameraMode.Following);
+      _isCameraFollowingMode.add(
+        _navigationLayer.camera.cameraMode() == CameraMode.Following,
+      );
     }).also((it) => _cameraListener = it);
 
     _navigationLayer.addRouteViewListener(routeViewListener);

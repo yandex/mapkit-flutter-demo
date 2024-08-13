@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:navikit_flutter_demo/domain/location/simple_guidance_listener.dart';
 import 'package:yandex_maps_navikit/directions.dart';
 import 'package:yandex_maps_navikit/mapkit.dart';
@@ -8,7 +9,7 @@ import 'package:yandex_maps_navikit/navigation.dart';
 final class NavigationGuidanceListener extends SimpleGuidanceListener {
   final StreamController<Location?> _locationController;
   final Guidance _guidance;
-  final void Function() _onRouteFinished;
+  final VoidCallback _onRouteFinished;
   final void Function(String) _onRoadNameChanged;
   final void Function(DrivingRoute?) _onCurrentRouteChanged;
 
@@ -18,7 +19,7 @@ final class NavigationGuidanceListener extends SimpleGuidanceListener {
   NavigationGuidanceListener(
     this._locationController,
     this._guidance, {
-    required void Function() onRouteFinished,
+    required VoidCallback onRouteFinished,
     required void Function(String) onRoadNameChanged,
     required void Function(DrivingRoute?) onCurrentRouteChanged,
   })  : _onRouteFinished = onRouteFinished,

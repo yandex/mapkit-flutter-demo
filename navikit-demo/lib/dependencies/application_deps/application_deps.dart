@@ -52,7 +52,10 @@ final class ApplicationDepsScope implements ApplicationDeps {
 
   @override
   late final navigationHolder = NavigationHolderImpl(
-      settingsManager, _navigationSerializer, snackBarFactory);
+    settingsManager,
+    _navigationSerializer,
+    snackBarFactory,
+  );
 
   @override
   late final locationManager = LocationManagerImpl(navigationHolder.navigation);
@@ -70,15 +73,20 @@ final class ApplicationDepsScope implements ApplicationDeps {
   late final requestPointsManager = RequestPointsManagerImpl(locationManager);
 
   @override
-  late final navigationManager = NavigationManagerImpl(requestPointsManager,
-      simulationManager, navigationHolder.navigation, snackBarFactory);
+  late final navigationManager = NavigationManagerImpl(
+    requestPointsManager,
+    simulationManager,
+    navigationHolder.navigation,
+    snackBarFactory,
+  );
 
   @override
   late final simulationManager = SimulationManagerImpl();
 
   @override
-  late final navigationSuspenderManager =
-      NavigationSuspenderManagerImpl(navigationManager);
+  late final navigationSuspenderManager = NavigationSuspenderManagerImpl(
+    navigationManager,
+  );
 
   @override
   late final settingsManager = SettingsManagerImpl(_keyValueStorage);

@@ -15,14 +15,16 @@ final class CommonDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     final actionButtons = buttons.map((button) {
       return TextButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-            button.$2();
-          },
-          style: TextButton.styleFrom(
-              foregroundColor: Theme.of(context).colorScheme.secondary,
-              textStyle: Theme.of(context).textTheme.labelMedium),
-          child: Text(button.$1));
+        onPressed: () {
+          Navigator.of(context).pop();
+          button.$2();
+        },
+        style: TextButton.styleFrom(
+          foregroundColor: Theme.of(context).colorScheme.secondary,
+          textStyle: Theme.of(context).textTheme.labelMedium,
+        ),
+        child: Text(button.$1),
+      );
     }).toList();
 
     return AlertDialog(

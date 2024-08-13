@@ -7,7 +7,7 @@ final class MapControlButton extends StatelessWidget {
   final Color backgroundColor;
   final EdgeInsets margin;
   final double size;
-  final void Function()? onPressed;
+  final VoidCallback? onPressed;
 
   const MapControlButton({
     super.key,
@@ -24,9 +24,11 @@ final class MapControlButton extends StatelessWidget {
     return Container(
       margin: margin,
       decoration: BoxDecoration(
-          color: backgroundColor,
-          borderRadius: const BorderRadius.all(
-              Radius.circular(Dimensions.commonBorderRadius))),
+        color: backgroundColor,
+        borderRadius: const BorderRadius.all(
+          Radius.circular(Dimensions.commonBorderRadius),
+        ),
+      ),
       child: IconButton(
         onPressed: onPressed,
         iconSize: size,

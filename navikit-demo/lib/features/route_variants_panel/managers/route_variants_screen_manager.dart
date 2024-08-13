@@ -14,17 +14,21 @@ final class RouteVariantsScreenManager implements DisposableScreenManager {
   final DialogsFactory _dialogsFactory;
 
   late final isRouteVariantsVisible = Rx.combineLatest3(
-      _requestPointsManager.requestPoints,
-      navigationManager.areRoutesBuilt,
-      navigationManager.guidanceActive,
-      (points, areRoutesBuilt, isGuidanceActive) {
-    return points.isNotEmpty && areRoutesBuilt && !isGuidanceActive;
-  }).shareValue();
+    _requestPointsManager.requestPoints,
+    navigationManager.areRoutesBuilt,
+    navigationManager.guidanceActive,
+    (points, areRoutesBuilt, isGuidanceActive) {
+      return points.isNotEmpty && areRoutesBuilt && !isGuidanceActive;
+    },
+  ).shareValue();
 
   StreamSubscription<List<RequestPoint>>? _requestPointsSubscription;
 
-  RouteVariantsScreenManager(this._navigationManager,
-      this._requestPointsManager, this._dialogsFactory);
+  RouteVariantsScreenManager(
+    this._navigationManager,
+    this._requestPointsManager,
+    this._dialogsFactory,
+  );
 
   void showRequestToPointDialog(Point point) {
     _dialogsFactory.showRequestToPointDialog(primaryAction: () {

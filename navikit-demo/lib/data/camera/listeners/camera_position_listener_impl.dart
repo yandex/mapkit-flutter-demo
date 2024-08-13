@@ -6,8 +6,12 @@ final class CameraPositionListenerImpl implements MapCameraListener {
   const CameraPositionListenerImpl(this._onCameraPositionChanged);
 
   @override
-  void onCameraPositionChanged(Map map, CameraPosition cameraPosition,
-      CameraUpdateReason cameraUpdateReason, bool finished) {
+  void onCameraPositionChanged(
+    Map map,
+    CameraPosition cameraPosition,
+    CameraUpdateReason cameraUpdateReason,
+    bool finished,
+  ) {
     _onCameraPositionChanged(cameraPosition);
   }
 }

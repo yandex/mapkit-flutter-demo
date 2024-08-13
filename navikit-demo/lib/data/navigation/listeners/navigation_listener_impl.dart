@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:yandex_maps_navikit/directions.dart';
 import 'package:yandex_maps_navikit/mapkit.dart';
 import 'package:yandex_maps_navikit/navigation.dart';
@@ -7,9 +8,9 @@ final class NavigationListenerImpl implements NavigationListener {
   final void Function(List<RequestPoint> points)? onRoutesRequestedCallback;
   final void Function(DrivingRoute route)? onAlternativesRequestedCallback;
   final void Function(String uri)? onUriResolvingRequestedCallback;
-  final void Function()? onRoutesBuiltCallback;
+  final VoidCallback? onRoutesBuiltCallback;
   final void Function(Error error)? onRoutesRequestErrorCallback;
-  final void Function()? onResetRoutesCallback;
+  final VoidCallback? onResetRoutesCallback;
 
   const NavigationListenerImpl({
     this.onRoutesRequestedCallback,

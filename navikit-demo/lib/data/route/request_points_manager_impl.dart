@@ -34,7 +34,8 @@ final class RequestPointsManagerImpl implements RequestPointsManager {
   void setViaPoint(Point point) {
     _requestPointModel.update((previousValue) {
       return previousValue.copyWith(
-          via: (previousValue.via?..add(point)) ?? [point]);
+        via: (previousValue.via?..add(point)) ?? [point],
+      );
     });
   }
 
@@ -60,7 +61,10 @@ final class RequestPointsManagerImpl implements RequestPointsManager {
   }
 
   List<RequestPoint> _createRequestPoints(
-      Point from, List<Point>? via, Point to) {
+    Point from,
+    List<Point>? via,
+    Point to,
+  ) {
     return [
       from.toRequestPoint(RequestPointType.Waypoint),
       ...?(via?.toRequestPoints(RequestPointType.Viapoint)),
@@ -101,6 +105,9 @@ final class _RequestPointModel {
 
   _RequestPointModel copyWith({Point? from, Point? to, List<Point>? via}) {
     return _RequestPointModel(
-        from ?? this.from, to ?? this.to, via ?? this.via);
+      from ?? this.from,
+      to ?? this.to,
+      via ?? this.via,
+    );
   }
 }

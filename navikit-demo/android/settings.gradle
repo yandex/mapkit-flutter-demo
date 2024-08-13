@@ -28,3 +28,10 @@ plugins {
 include ":app"
 
 apply from: "${settings.ext.flutterSdkPath}/packages/flutter_tools/gradle/app_plugin_loader.gradle"
+
+include ':com.yandex.mapkit.styling.automotivenavigation'
+project(':com.yandex.mapkit.styling.automotivenavigation').projectDir = file('../../../../libs/styling/automotive_style_provider/android')
+include ':com.yandex.mapkit.styling.transportnavigation'
+project(':com.yandex.mapkit.styling.transportnavigation').projectDir = file('../../../../libs/styling/transport_style_provider/android')
+include ':com.yandex.mapkit.styling.roadevents'
+project(':com.yandex.mapkit.styling.roadevents').projectDir = file('../../../../libs/road_events_layer_style_provider/android')

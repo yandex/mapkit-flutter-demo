@@ -22,15 +22,17 @@ final class PermissionManagerImpl implements PermissionManager {
     flutterPermissions.permissionsForDialog().then((permissions) {
       if (permissions.isNotEmpty) {
         _dialogsFactory.showPermissionRequestDialog(
-            description: AlertStrings.requestLocationPermissionDialogText,
-            primaryAction: openAppSettings);
+          description: AlertStrings.requestLocationPermissionDialogText,
+          primaryAction: openAppSettings,
+        );
       }
     });
   }
 
   @override
   Future<PermissionStatus> getPermissionStatus(
-      PermissionType permission) async {
+    PermissionType permission,
+  ) async {
     return await permission.mapPermission().status;
   }
 }

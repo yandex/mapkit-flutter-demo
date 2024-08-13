@@ -41,11 +41,13 @@ final class NavigationManagerImpl implements NavigationManager {
     },
   );
 
-  late final SimpleGuidanceListener _guidanceListener =
-      NavigationGuidanceListener(_location, _navigation.guidance,
-          onRouteFinished: stopGuidance,
-          onRoadNameChanged: _roadName.add,
-          onCurrentRouteChanged: _currentRoute.add);
+  late final _guidanceListener = NavigationGuidanceListener(
+    _location,
+    _navigation.guidance,
+    onRouteFinished: stopGuidance,
+    onRoadNameChanged: _roadName.add,
+    onCurrentRouteChanged: _currentRoute.add,
+  );
 
   NavigationManagerImpl(
     this._requestPointsManager,
@@ -95,7 +97,9 @@ final class NavigationManagerImpl implements NavigationManager {
   void requestRoutes(List<RequestPoint> points) {
     _navigation.vehicleOptions = _defaultVehicleOptions();
     _navigation.requestRoutes(
-        points: points, initialAzimuth: _navigation.guidance.location?.heading);
+      points: points,
+      initialAzimuth: _navigation.guidance.location?.heading,
+    );
   }
 
   @override

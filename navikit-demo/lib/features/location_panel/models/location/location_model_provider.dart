@@ -8,9 +8,10 @@ final class LocationModelProvider {
 
   late final model = _locationManager.location.map((location) {
     return LocationModel(
-        latitude: location?.position.latitude,
-        longitude: location?.position.longitude,
-        heading: location?.heading);
+      latitude: location?.position.latitude,
+      longitude: location?.position.longitude,
+      heading: location?.heading,
+    );
   }).share();
 
   LocationModelProvider(this._locationManager);

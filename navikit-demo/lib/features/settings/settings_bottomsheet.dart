@@ -15,13 +15,16 @@ final class SettingsBottomsheetState extends State<SettingsBottomsheet> {
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-          padding: const EdgeInsets.only(
-              left: Dimensions.commonPadding, right: Dimensions.commonPadding),
-          child: ListView(
-            children: const [
-              SettingsSectionWithToggle(title: SettingsStrings.fancyButton)
-            ],
-          )),
+        padding: const EdgeInsets.only(
+          left: Dimensions.commonPadding,
+          right: Dimensions.commonPadding,
+        ),
+        child: ListView(
+          children: const [
+            SettingsSectionWithToggle(title: SettingsStrings.fancyButton)
+          ],
+        ),
+      ),
     );
   }
 }

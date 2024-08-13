@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:navikit_flutter_demo/core/resources/strings/alert_strings.dart';
 import 'package:navikit_flutter_demo/core/resources/strings/guidance_strings.dart';
 import 'package:navikit_flutter_demo/core/resources/strings/route_strings.dart';
@@ -10,8 +11,10 @@ final class DialogsFactoryImpl implements DialogsFactory {
   const DialogsFactoryImpl(this._dialogProvider);
 
   @override
-  void showPermissionRequestDialog(
-      {required String description, required void Function() primaryAction}) {
+  void showPermissionRequestDialog({
+    required String description,
+    required VoidCallback primaryAction,
+  }) {
     final buttons = [
       (AlertStrings.dialogAcceptButtonText, primaryAction),
       (AlertStrings.dialogCancelButtonText, () {}),
@@ -20,36 +23,47 @@ final class DialogsFactoryImpl implements DialogsFactory {
   }
 
   @override
-  void showRequestToPointDialog({required void Function() primaryAction}) {
+  void showRequestToPointDialog({
+    required VoidCallback primaryAction,
+  }) {
     final buttons = [
       (AlertStrings.dialogAcceptButtonText, primaryAction),
       (AlertStrings.dialogCancelButtonText, () {}),
     ];
     _dialogProvider.showCommonDialog(
-        RouteStrings.buildRouteDialogText, buttons);
+      RouteStrings.buildRouteDialogText,
+      buttons,
+    );
   }
 
   @override
   void showRequestPointDialog({
-    required void Function() onToClicked,
-    required void Function() onViaClicked,
-    required void Function() onFromClicked,
+    required VoidCallback onToClicked,
+    required VoidCallback onViaClicked,
+    required VoidCallback onFromClicked,
   }) {
     final buttons = [
       (RouteStrings.addToPointText, onToClicked),
       (RouteStrings.addViaPointText, onViaClicked),
       (RouteStrings.addFromPointText, onFromClicked),
     ];
-    _dialogProvider.showCommonDialog(RouteStrings.addPointToRouteText, buttons);
+    _dialogProvider.showCommonDialog(
+      RouteStrings.addPointToRouteText,
+      buttons,
+    );
   }
 
   @override
-  void showCancelGuidanceDialog({required void Function() primaryAction}) {
+  void showCancelGuidanceDialog({
+    required VoidCallback primaryAction,
+  }) {
     final buttons = [
       (AlertStrings.dialogYesButtonText, primaryAction),
       (AlertStrings.dialogNoButtonText, () {})
     ];
     _dialogProvider.showCommonDialog(
-        GuidanceStrings.closeGuidanceDialogText, buttons);
+      GuidanceStrings.closeGuidanceDialogText,
+      buttons,
+    );
   }
 }

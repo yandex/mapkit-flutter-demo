@@ -39,7 +39,10 @@ final class FlutterMapWidgetState extends State<FlutterMapWidget> {
   late final MapDeps mapDeps;
 
   late final routeVariantsScreenManager = RouteVariantsScreenManager(
-      navigationManager, requestPointsManager, alertsFactory);
+    navigationManager,
+    requestPointsManager,
+    alertsFactory,
+  );
 
   late final mapTapScreenManager = MapTapScreenManager(
     navigationManager,
@@ -50,93 +53,109 @@ final class FlutterMapWidgetState extends State<FlutterMapWidget> {
   late final locationModelProvider = LocationModelProvider(locationManager);
   late final cameraModelProvider = CameraModelProvider(mapDeps.cameraManager);
   late final routeVariantsModelProvider = RouteVariantsScreenModelProvider(
-      routeVariantsScreenManager.isRouteVariantsVisible);
+    routeVariantsScreenManager.isRouteVariantsVisible,
+  );
   late final guidanceModelProvider = GuidanceModelProvider(
-      locationManager, navigationManager, simulationManager);
+    locationManager,
+    navigationManager,
+    simulationManager,
+  );
 
   bool _isMapkitActive = false;
   bool _isMapCreated = false;
 
   @override
   Widget build(BuildContext context) {
-    return Stack(alignment: Alignment.center, children: [
-      SafeArea(
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        SafeArea(
           top: false,
           child: YandexMap(
-              onMapCreated: _onMapCreated,
-              platformViewType: PlatformViewType.Hybrid)),
-      if (_isMapCreated) ...[
-        Positioned(
-          top: 0.0,
-          left: 0.0,
-          child: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.only(
-                  top: Dimensions.panelPadding, left: Dimensions.panelPadding),
-              child: LocationPanel(
-                backgroundColor:
-                    Theme.of(context).colorScheme.background.withOpacity(0.8),
-                locationModel: locationModelProvider.model,
-                cameraModel: cameraModelProvider.model,
+            onMapCreated: _onMapCreated,
+            platformViewType: PlatformViewType.Hybrid,
+          ),
+        ),
+        if (_isMapCreated) ...[
+          Positioned(
+            top: 0.0,
+            left: 0.0,
+            child: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: Dimensions.panelPadding,
+                  left: Dimensions.panelPadding,
+                ),
+                child: LocationPanel(
+                  backgroundColor:
+                      Theme.of(context).colorScheme.background.withOpacity(0.8),
+                  locationModel: locationModelProvider.model,
+                  cameraModel: cameraModelProvider.model,
+                ),
               ),
             ),
           ),
-        ),
-        Positioned(
+          Positioned(
             right: 0.0,
             child: SafeArea(
-                child: Padding(
-              padding: EdgeInsets.only(
+              child: Padding(
+                padding: EdgeInsets.only(
                   right: Dimensions.commonPadding,
                   bottom: MediaQuery.of(context).orientation ==
                           Orientation.landscape
                       ? 60.0
-                      : 0.0),
-              child: Wrap(
-                direction: Axis.vertical,
-                spacing: Dimensions.commonSpacing,
-                children: [
-                  MapControlButton(
-                    icon: Icons.add,
-                    backgroundColor: Theme.of(context).colorScheme.onSecondary,
-                    onPressed: () {
-                      mapDeps.cameraManager.changeZoomByStep(ZoomStep.plus);
-                    },
-                  ),
-                  MapControlButton(
-                    icon: Icons.remove,
-                    backgroundColor: Theme.of(context).colorScheme.onSecondary,
-                    onPressed: () {
-                      mapDeps.cameraManager.changeZoomByStep(ZoomStep.minus);
-                    },
-                  ),
-                ],
+                      : 0.0,
+                ),
+                child: Wrap(
+                  direction: Axis.vertical,
+                  spacing: Dimensions.commonSpacing,
+                  children: [
+                    MapControlButton(
+                      icon: Icons.add,
+                      backgroundColor:
+                          Theme.of(context).colorScheme.onSecondary,
+                      onPressed: () {
+                        mapDeps.cameraManager.changeZoomByStep(ZoomStep.plus);
+                      },
+                    ),
+                    MapControlButton(
+                      icon: Icons.remove,
+                      backgroundColor:
+                          Theme.of(context).colorScheme.onSecondary,
+                      onPressed: () {
+                        mapDeps.cameraManager.changeZoomByStep(ZoomStep.minus);
+                      },
+                    ),
+                  ],
+                ),
               ),
-            ))),
-        Positioned(
-          bottom: 0.0,
-          left: 0.0,
-          right: 0.0,
-          child: SafeArea(
-            child: Column(
-              children: [
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Padding(
-                    padding: const EdgeInsets.only(
+            ),
+          ),
+          Positioned(
+            bottom: 0.0,
+            left: 0.0,
+            right: 0.0,
+            child: SafeArea(
+              child: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Padding(
+                      padding: const EdgeInsets.only(
                         right: Dimensions.commonPadding,
-                        bottom: Dimensions.commonPadding),
-                    child: Wrap(
-                      spacing: Dimensions.commonSpacing,
-                      children: [
-                        OverviewRouteButton(
+                        bottom: Dimensions.commonPadding,
+                      ),
+                      child: Wrap(
+                        spacing: Dimensions.commonSpacing,
+                        children: [
+                          OverviewRouteButton(
                             guidanceModel: guidanceModelProvider.model,
                             onPressed: () {
                               mapDeps.navigationLayerManager.cameraMode =
                                   CameraMode.Overview;
-                            }),
-
-                        FindMeButton(
+                            },
+                          ),
+                          FindMeButton(
                             guidanceModel: guidanceModelProvider.model,
                             defaultAction: () {
                               mapDeps.cameraManager.moveCameraToUserLocation();
@@ -144,37 +163,36 @@ final class FlutterMapWidgetState extends State<FlutterMapWidget> {
                             actionInGuidanceMode: () {
                               mapDeps.navigationLayerManager.cameraMode =
                                   CameraMode.Following;
-                            }),
-
-                        // MapControlButton(
-                        //   icon: Icons.settings,
-                        //   backgroundColor: Theme.of(context).colorScheme.onSecondary,
-                        //   onPressed: () {
-                        //     widget.showSettingsBottomsheet(context);
-                        //   },
-                        // ),
-                      ],
+                            },
+                          ),
+                          // MapControlButton(
+                          //   icon: Icons.settings,
+                          //   backgroundColor:
+                          //       Theme.of(context).colorScheme.onSecondary,
+                          //   onPressed: () {
+                          //     widget.showSettingsBottomsheet(context);
+                          //   },
+                          // ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                RouteVariantsPanel(
-                  routeVariantsScreenModel: routeVariantsModelProvider.model,
-                  onGoClicked: () {
-                    _startGuidance();
-                  },
-                  onCancelClicked: () {
-                    requestPointsManager.resetPoints();
-                  },
-                ),
-                GuidancePanel(
+                  RouteVariantsPanel(
+                    routeVariantsScreenModel: routeVariantsModelProvider.model,
+                    onGoClicked: () => _startGuidance(),
+                    onCancelClicked: () => requestPointsManager.resetPoints(),
+                  ),
+                  GuidancePanel(
                     guidanceModel: guidanceModelProvider.model,
-                    closeGuidanceAction: _stopGuidance)
-              ],
+                    closeGuidanceAction: _stopGuidance,
+                  )
+                ],
+              ),
             ),
           ),
-        ),
+        ],
       ],
-    ]);
+    );
   }
 
   @override
@@ -216,8 +234,11 @@ final class FlutterMapWidgetState extends State<FlutterMapWidget> {
   }
 
   void _onMapCreated(MapWindow window) {
-    mapDeps =
-        MapDepsScope(window, navigationHolder.navigation, locationManager);
+    mapDeps = MapDepsScope(
+      window,
+      navigationHolder.navigation,
+      locationManager,
+    );
 
     setState(() {
       _isMapCreated = true;
@@ -231,8 +252,12 @@ final class FlutterMapWidgetState extends State<FlutterMapWidget> {
 
     window.let((it) {
       it.map.addInputListener(mapDeps.mapInputManager);
-      it.map.logo.setAlignment(const LogoAlignment(
-          LogoHorizontalAlignment.Left, LogoVerticalAlignment.Bottom));
+      it.map.logo.setAlignment(
+        const LogoAlignment(
+          LogoHorizontalAlignment.Left,
+          LogoVerticalAlignment.Bottom,
+        ),
+      );
     });
 
     _setMapTheme();

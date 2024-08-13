@@ -25,9 +25,11 @@ final class LocationPanelState extends State<LocationPanel> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: widget.backgroundColor,
-          borderRadius: const BorderRadius.all(
-              Radius.circular(Dimensions.commonBorderRadius))),
+        color: widget.backgroundColor,
+        borderRadius: const BorderRadius.all(
+          Radius.circular(Dimensions.commonBorderRadius),
+        ),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(Dimensions.panelPadding),
         child: Column(
@@ -42,26 +44,27 @@ final class LocationPanelState extends State<LocationPanel> {
                   ?.copyWith(fontWeight: FontWeight.w700),
             ),
             StreamBuilder(
-                stream: widget.locationModel,
-                builder: (context, snapshot) {
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "${LocationStrings.latitude} ${snapshot.data?.latitude}",
-                        style: Theme.of(context).textTheme.labelSmall,
-                      ),
-                      Text(
-                        "${LocationStrings.longitude} ${snapshot.data?.longitude}",
-                        style: Theme.of(context).textTheme.labelSmall,
-                      ),
-                      Text(
-                        "${LocationStrings.heading} ${snapshot.data?.heading}",
-                        style: Theme.of(context).textTheme.labelSmall,
-                      ),
-                    ],
-                  );
-                }),
+              stream: widget.locationModel,
+              builder: (context, snapshot) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "${LocationStrings.latitude} ${snapshot.data?.latitude}",
+                      style: Theme.of(context).textTheme.labelSmall,
+                    ),
+                    Text(
+                      "${LocationStrings.longitude} ${snapshot.data?.longitude}",
+                      style: Theme.of(context).textTheme.labelSmall,
+                    ),
+                    Text(
+                      "${LocationStrings.heading} ${snapshot.data?.heading}",
+                      style: Theme.of(context).textTheme.labelSmall,
+                    ),
+                  ],
+                );
+              },
+            ),
             const SizedBox(height: Dimensions.panelPadding),
             Text(
               LocationStrings.camera,
@@ -71,18 +74,19 @@ final class LocationPanelState extends State<LocationPanel> {
                   ?.copyWith(fontWeight: FontWeight.w900),
             ),
             StreamBuilder(
-                stream: widget.cameraModel,
-                builder: (context, snapshot) {
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "${LocationStrings.azimuth} ${snapshot.data?.azimuth}",
-                        style: Theme.of(context).textTheme.labelSmall,
-                      ),
-                    ],
-                  );
-                }),
+              stream: widget.cameraModel,
+              builder: (context, snapshot) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "${LocationStrings.azimuth} ${snapshot.data?.azimuth}",
+                      style: Theme.of(context).textTheme.labelSmall,
+                    ),
+                  ],
+                );
+              },
+            ),
           ],
         ),
       ),

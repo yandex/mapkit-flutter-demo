@@ -5,7 +5,10 @@ final class UserPlacemarkStyleProviderImpl
     implements NavigationUserPlacemarkStyleProvider {
   @override
   void provideStyle(
-      double scaleFactor, bool isNightMode, PlacemarkStyle style) {
+    double scaleFactor,
+    bool isNightMode,
+    PlacemarkStyle style,
+  ) {
     style.setArrowModel();
   }
 }

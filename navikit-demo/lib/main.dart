@@ -13,13 +13,16 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await initApplicationDeps();
-  await init.initMapkit(apiKey: 'YOUR_API_KEY');
+  await init.initMapkit(apiKey: const String.fromEnvironment('API_KEY'));
 
-  runApp(MaterialApp(
+  runApp(
+    MaterialApp(
       theme: NavikitFlutterTheme.lightTheme,
       darkTheme: NavikitFlutterTheme.darkTheme,
       themeMode: ThemeMode.system,
-      home: const NavikitFlutterApp()));
+      home: const NavikitFlutterApp(),
+    ),
+  );
 }
 
 class NavikitFlutterApp extends StatefulWidget {
@@ -64,21 +67,21 @@ class _NavikitFlutterAppState extends State<NavikitFlutterApp> {
     return Scaffold(
       key: globalKey,
       body: Center(
-          child: FlutterMapWidget(
-        showSettingsBottomsheet: _showSettingsBottomsheet,
-      )),
+        child: FlutterMapWidget(
+          showSettingsBottomsheet: _showSettingsBottomsheet,
+        ),
+      ),
     );
   }
 
   void _showSettingsBottomsheet(BuildContext context) {
     showModalBottomSheet(
-        context: context,
-        useSafeArea: true,
-        isScrollControlled: true,
-        showDragHandle: true,
-        builder: (BuildContext context) {
-          return const SettingsBottomsheet();
-        });
+      context: context,
+      useSafeArea: true,
+      isScrollControlled: true,
+      showDragHandle: true,
+      builder: (BuildContext context) => const SettingsBottomsheet(),
+    );
   }
 
   void _requestPermissionsIfNeeded() {

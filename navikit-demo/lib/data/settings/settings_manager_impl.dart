@@ -18,15 +18,19 @@ final class SettingsManagerImpl implements SettingsManager {
   late final serializedNavigation = _string("serializedNavigation");
 
   SettingsModel<bool> _boolean(String key, {bool defaultValue = false}) {
-    return _SettingsModelImpl(key,
-        putValue: _keyValueStorage.putBool,
-        getPreference: (key) => _keyValueStorage.readBool(key, defaultValue));
+    return _SettingsModelImpl(
+      key,
+      putValue: _keyValueStorage.putBool,
+      getPreference: (key) => _keyValueStorage.readBool(key, defaultValue),
+    );
   }
 
   SettingsModel<String> _string(String key, {String defaultValue = ""}) {
-    return _SettingsModelImpl(key,
-        putValue: _keyValueStorage.putString,
-        getPreference: (key) => _keyValueStorage.readString(key, defaultValue));
+    return _SettingsModelImpl(
+      key,
+      putValue: _keyValueStorage.putString,
+      getPreference: (key) => _keyValueStorage.readString(key, defaultValue),
+    );
   }
 }
 

@@ -31,25 +31,26 @@ final class SettingsSectionWithToggleState
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        behavior: HitTestBehavior.translucent,
-        onTap: _updateState,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              title,
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-            Switch(
-              value: isEnabled,
-              thumbColor: MaterialStateProperty.resolveWith(_updateThumbColor),
-              trackColor: MaterialStateProperty.resolveWith(_updateTrackColor),
-              trackOutlineColor:
-                  MaterialStateProperty.resolveWith(_updateOutlineColor),
-              onChanged: (bool _) => _updateState(),
-            ),
-          ],
-        ));
+      behavior: HitTestBehavior.translucent,
+      onTap: _updateState,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
+          Switch(
+            value: isEnabled,
+            thumbColor: MaterialStateProperty.resolveWith(_updateThumbColor),
+            trackColor: MaterialStateProperty.resolveWith(_updateTrackColor),
+            trackOutlineColor:
+                MaterialStateProperty.resolveWith(_updateOutlineColor),
+            onChanged: (bool _) => _updateState(),
+          ),
+        ],
+      ),
+    );
   }
 
   void _updateState() {
