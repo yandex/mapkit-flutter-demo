@@ -36,7 +36,6 @@ dependencies:
   cupertino_icons: ^1.0.2
   collection: ^1.18.0
 
-  yandex_maps_mapkit: 4.6.1-beta3
   common:
     path: ../common
   flutter_dotenv: ^5.1.0

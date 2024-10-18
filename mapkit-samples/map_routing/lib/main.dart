@@ -355,24 +355,26 @@ class _MapkitFlutterAppState extends State<MapkitFlutterApp> {
 
   void _requestPedestrianRoutes(List<RequestPoint> points) {
     const timeOptions = TimeOptions();
+    const routeOptions = RouteOptions(FitnessOptions(avoidSteep: false));
 
     _pedestrianSession = _pedestrianRouter.requestRoutes(
       timeOptions,
+      routeOptions,
       _pedestrianRouteListener,
       points: points,
-      avoidSteep: false,
     );
   }
 
   void _requestPublicTransportRoutes(List<RequestPoint> points) {
     const timeOptions = TimeOptions();
     const transitOptions = TransitOptions(timeOptions);
+    const routeOptions = RouteOptions(FitnessOptions(avoidSteep: false));
 
     _publicTransportSession = _publicTransportRouter.requestRoutes(
       transitOptions,
+      routeOptions,
       _publicTransportRouteListener,
       points: points,
-      avoidSteep: false,
     );
   }
 }
