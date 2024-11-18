@@ -13,11 +13,12 @@ final class RouteViewStyleProviderImpl
     DrivingFlags flags,
     bool isSelected,
     bool isNightMode,
+    NavigationLayerMode layerMode,
     NavigationJamStyle jamStyle,
   ) {
     _automotiveNavigationStyleProvider
         .routeViewStyleProvider()
-        .provideJamStyle(flags, isSelected, isNightMode, jamStyle);
+        .provideJamStyle(flags, isSelected, isNightMode, layerMode, jamStyle);
   }
 
   @override
@@ -25,11 +26,12 @@ final class RouteViewStyleProviderImpl
     DrivingFlags flags,
     bool isSelected,
     bool isNightMode,
+    NavigationLayerMode layerMode,
     PolylineStyle polylineStyle,
   ) {
     _automotiveNavigationStyleProvider
         .routeViewStyleProvider()
-        .providePolylineStyle(flags, isSelected, isNightMode, polylineStyle);
+        .providePolylineStyle(flags, isSelected, isNightMode, layerMode, polylineStyle);
   }
 
   @override
@@ -37,11 +39,12 @@ final class RouteViewStyleProviderImpl
     DrivingFlags flags,
     bool isSelected,
     bool isNightMode,
+    NavigationLayerMode layerMode,
     ArrowStyle arrowStyle,
   ) {
     _automotiveNavigationStyleProvider
         .routeViewStyleProvider()
-        .provideManoeuvreStyle(flags, isSelected, isNightMode, arrowStyle);
+        .provideManoeuvreStyle(flags, isSelected, isNightMode, layerMode, arrowStyle);
   }
 
   @override
@@ -49,11 +52,12 @@ final class RouteViewStyleProviderImpl
     DrivingFlags flags,
     bool isSelected,
     bool isNightMode,
+    NavigationLayerMode layerMode,
     NavigationRouteStyle routeStyle,
   ) {
     _automotiveNavigationStyleProvider
         .routeViewStyleProvider()
-        .provideRouteStyle(flags, isSelected, isNightMode, routeStyle);
+        .provideRouteStyle(flags, isSelected, isNightMode, layerMode, routeStyle);
 
     routeStyle.setShowJams(isSelected);
 

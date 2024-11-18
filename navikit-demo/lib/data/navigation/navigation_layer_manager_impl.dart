@@ -15,7 +15,7 @@ import 'package:yandex_maps_navikit/navigation.dart';
 
 final class NavigationLayerManagerImpl implements NavigationLayerManager {
   final MapWindow _mapWindow;
-  final RoadEventsLayer _roadEventsLayer;
+  final RoadEventsLayerStyleProvider _roadEventsLayerStyleProvider;
   final NavigationStyleManager _navigationStyleManager;
   final Navigation _navigation;
 
@@ -34,7 +34,7 @@ final class NavigationLayerManagerImpl implements NavigationLayerManager {
 
   NavigationLayerManagerImpl(
     this._mapWindow,
-    this._roadEventsLayer,
+    this._roadEventsLayerStyleProvider,
     this._navigationStyleManager,
     this._navigation,
   );
@@ -71,15 +71,15 @@ final class NavigationLayerManagerImpl implements NavigationLayerManager {
   }
 
   Future<void> _createLayer() async {
-    for (final tag in RoadEventsEventTag.values) {
-      _roadEventsLayer.setRoadEventVisibleOnRoute(tag, on: true);
-    }
     _navigationLayer = NavigationLayerFactory.createNavigationLayer(
       _mapWindow,
-      _roadEventsLayer,
+      _roadEventsLayerStyleProvider,
       _navigationStyleManager,
       _navigation,
     );
+    for (final tag in RoadEventsEventTag.values) {
+      _navigationLayer.setRoadEventVisibleOnRoute(tag, on: true);
+    }
     _addAllListeners();
   }
 

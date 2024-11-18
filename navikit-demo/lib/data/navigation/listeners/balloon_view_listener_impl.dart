@@ -9,11 +9,11 @@ final class BalloonViewListenerImpl implements BalloonViewListener {
   void onBalloonViewTap(BalloonView balloonView) {
     final route = balloonView.hostRoute;
 
-    switch (_navigationLayer.routesSource) {
-      case RoutesSource.Navigation:
+    switch (_navigationLayer.mode) {
+      case NavigationLayerMode.RouteSelection:
         _navigationLayer.selectRoute(_navigationLayer.getView(route));
 
-      case RoutesSource.Guidance:
+      case NavigationLayerMode.Guidance:
         if (balloonView.balloon.asAlternativeBalloon() != null) {
           _navigationLayer.navigation.guidance.switchToRoute(route);
         }

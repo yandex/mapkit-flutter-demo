@@ -4,6 +4,7 @@ import 'package:common/resources/theme.dart';
 import 'package:common/utils/extension_utils.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter/material.dart';
+import 'package:map_with_jams/data/geometry_provider.dart';
 import 'package:map_with_jams/traffic/traffic_lights_images_provider.dart';
 import 'package:map_with_jams/traffic/traffic_state.dart';
 import 'package:yandex_maps_mapkit/init.dart' as init;
@@ -36,12 +37,6 @@ class MapkitFlutterApp extends StatefulWidget {
 
 class _MapkitFlutterAppState extends State<MapkitFlutterApp>
     implements TrafficListener {
-  static const startPosition = CameraPosition(
-      Point(latitude: 59.935016, longitude: 30.328903),
-      zoom: 15.0,
-      azimuth: 0.0,
-      tilt: 0.0);
-
   TrafficLayer? _trafficLayer;
   TrafficLevel? _trafficLevel;
   TrafficState? _trafficState;
@@ -58,7 +53,7 @@ class _MapkitFlutterAppState extends State<MapkitFlutterApp>
           children: [
             FlutterMapWidget(
               onMapCreated: (mapWindow) {
-                mapWindow.map.move(startPosition);
+                mapWindow.map.move(GeometryProvider.startPosition);
 
                 _trafficLayer = mapkit.createTrafficLayer(mapWindow)
                   ..setTrafficVisible(true)

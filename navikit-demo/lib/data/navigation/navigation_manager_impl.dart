@@ -4,7 +4,6 @@ import 'package:navikit_flutter_demo/core/resources/strings/route_strings.dart';
 import 'package:navikit_flutter_demo/data/navigation/listeners/navigation_guidance_listener.dart';
 import 'package:navikit_flutter_demo/data/navigation/listeners/navigation_listener_impl.dart';
 import 'package:navikit_flutter_demo/domain/alerts/snackbars/snackbar_factory.dart';
-import 'package:navikit_flutter_demo/domain/location/simple_guidance_listener.dart';
 import 'package:navikit_flutter_demo/domain/navigation/navigation_manager.dart';
 import 'package:navikit_flutter_demo/domain/route/request_points_manager.dart';
 import 'package:navikit_flutter_demo/domain/simulation/simulation_manager.dart';
@@ -98,7 +97,7 @@ final class NavigationManagerImpl implements NavigationManager {
     _navigation.vehicleOptions = _defaultVehicleOptions();
     _navigation.requestRoutes(
       points: points,
-      initialAzimuth: _navigation.guidance.location?.heading,
+      AutomotiveRouteOptions(initialAzimuth: _navigation.guidance.location?.heading),
     );
   }
 

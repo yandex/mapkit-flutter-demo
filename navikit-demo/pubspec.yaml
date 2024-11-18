@@ -17,7 +17,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  yandex_maps_navikit: 4.8.3-beta
+  yandex_maps_navikit: 4.9.0-beta
     # When depending on this package from a real application you should use:
     #   yandex_maps: ^x.y.z
     # See https://dart.dev/tools/pub/dependencies#version-constraints
@@ -32,6 +32,7 @@ dependencies:
   permission_handler: ^11.0.1
   rxdart: ^0.27.7
   streaming_shared_preferences: ^2.0.0
+  flutter_dotenv: ^5.1.0
 
 dev_dependencies:
   flutter_test:
@@ -55,10 +56,8 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - .env
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

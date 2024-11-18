@@ -10,7 +10,6 @@ import 'package:navikit_flutter_demo/domain/location/location_manager.dart'
 import 'package:navikit_flutter_demo/domain/navigation/navigation_layer_manager.dart';
 import 'package:yandex_maps_navikit/automotive_navigation_style_provider.dart';
 import 'package:yandex_maps_navikit/mapkit.dart';
-import 'package:yandex_maps_navikit/mapkit_factory.dart';
 import 'package:yandex_maps_navikit/navigation.dart';
 import 'package:yandex_maps_navikit/road_events_layer_style_provider.dart';
 
@@ -30,10 +29,6 @@ final class MapDepsScope implements MapDeps {
   final RoadEventsLayerStyleProvider _roadEventsDefaultStyleProvider =
       RoadEventsLayerDefaultStyleProvider();
 
-  late final _roadEventsLayer = mapkit.createRouteRoadEventsLayer(
-    mapWindow,
-    _roadEventsDefaultStyleProvider,
-  );
   late final _navigationStyleManager = NavigationStyleManagerImpl(
     _automotiveNavigationStyleProvider,
   );
@@ -49,7 +44,7 @@ final class MapDepsScope implements MapDeps {
   @override
   late final navigationLayerManager = NavigationLayerManagerImpl(
     mapWindow,
-    _roadEventsLayer,
+    _roadEventsDefaultStyleProvider,
     _navigationStyleManager,
     _navigation,
   );

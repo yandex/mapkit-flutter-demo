@@ -161,7 +161,6 @@
 				749E5D88BE55C3F3A892233F /* Pods-RunnerTests.release.xcconfig */,
 				098778ED01ED749D7DE4477A /* Pods-RunnerTests.profile.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -495,6 +494,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yandex.navikit.FlutterDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_STYLE = "non-global";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -673,6 +673,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yandex.navikit.FlutterDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_STYLE = "non-global";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -695,6 +696,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yandex.navikit.FlutterDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_STYLE = "non-global";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

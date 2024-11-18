@@ -68,7 +68,7 @@ final class CameraManager {
 
     _locationManager.subscribeForLocationUpdates(
       LocationFilteringMode.On,
-      LocationPurpose.General,
+      Purpose.General,
       _locationListener,
       desiredAccuracy: 0.0,
       minTime: 1000,

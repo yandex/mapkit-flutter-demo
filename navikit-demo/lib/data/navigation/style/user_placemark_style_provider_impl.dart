@@ -7,6 +7,7 @@ final class UserPlacemarkStyleProviderImpl
   void provideStyle(
     double scaleFactor,
     bool isNightMode,
+    NavigationLayerMode layerMode,
     PlacemarkStyle style,
   ) {
     style.setArrowModel();

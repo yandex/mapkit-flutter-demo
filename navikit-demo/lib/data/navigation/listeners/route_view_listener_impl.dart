@@ -8,10 +8,10 @@ final class RouteViewListenerImpl implements RouteViewListener {
 
   @override
   void onRouteViewTap(RouteView routeView) {
-    switch (_navigationLayer.routesSource) {
-      case RoutesSource.Navigation:
+    switch (_navigationLayer.mode) {
+      case NavigationLayerMode.RouteSelection:
         _navigationLayer.selectRoute(routeView);
-      case RoutesSource.Guidance:
+      case NavigationLayerMode.Guidance:
         _navigationLayer.navigation.guidance.switchToRoute(routeView.route);
     }
   }

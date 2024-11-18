@@ -16,5 +16,5 @@ final class NavigationLayerListenerImpl implements NavigationLayerListener {
   }
 
   @override
-  void onRoutesSourceChanged() {}
+  void onModeChanged() {}
 }
