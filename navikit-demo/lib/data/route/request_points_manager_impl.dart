@@ -75,7 +75,7 @@ final class RequestPointsManagerImpl implements RequestPointsManager {
 
 extension _ToRequestPoint on Point {
   RequestPoint toRequestPoint(RequestPointType type) =>
-      RequestPoint(this, type, null, null);
+      RequestPoint(this, type, null, null, null);
 }
 
 extension _ToRequestPoints on List<Point> {

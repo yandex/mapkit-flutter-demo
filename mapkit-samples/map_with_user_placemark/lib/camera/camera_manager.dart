@@ -67,13 +67,8 @@ final class CameraManager {
     _mapWindow.map.addCameraListener(_cameraPositionListener);
 
     _locationManager.subscribeForLocationUpdates(
-      LocationFilteringMode.On,
-      Purpose.General,
+      LocationSubscriptionSettings(LocationUseInBackground.Disallow, Purpose.General),
       _locationListener,
-      desiredAccuracy: 0.0,
-      minTime: 1000,
-      minDistance: 0,
-      allowUseInBackground: false,
     );
   }
 

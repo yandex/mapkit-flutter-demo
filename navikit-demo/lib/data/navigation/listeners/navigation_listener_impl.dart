@@ -8,6 +8,7 @@ final class NavigationListenerImpl implements NavigationListener {
   final void Function(List<RequestPoint> points)? onRoutesRequestedCallback;
   final void Function(DrivingRoute route)? onAlternativesRequestedCallback;
   final void Function(String uri)? onUriResolvingRequestedCallback;
+  final VoidCallback? onMatchRouteResolvingRequestedCallback;
   final VoidCallback? onRoutesBuiltCallback;
   final void Function(Error error)? onRoutesRequestErrorCallback;
   final VoidCallback? onResetRoutesCallback;
@@ -16,6 +17,7 @@ final class NavigationListenerImpl implements NavigationListener {
     this.onRoutesRequestedCallback,
     this.onAlternativesRequestedCallback,
     this.onUriResolvingRequestedCallback,
+    this.onMatchRouteResolvingRequestedCallback,
     this.onRoutesBuiltCallback,
     this.onRoutesRequestErrorCallback,
     this.onResetRoutesCallback,
@@ -32,6 +34,10 @@ final class NavigationListenerImpl implements NavigationListener {
   @override
   void onUriResolvingRequested(String uri) =>
       onUriResolvingRequestedCallback?.call(uri);
+
+  @override  
+  void onMatchRouteResolvingRequested() =>
+      onMatchRouteResolvingRequestedCallback?.call();
 
   @override
   void onRoutesBuilt() => onRoutesBuiltCallback?.call();

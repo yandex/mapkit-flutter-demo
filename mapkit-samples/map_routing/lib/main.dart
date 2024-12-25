@@ -285,10 +285,10 @@ class _MapkitFlutterAppState extends State<MapkitFlutterApp> {
     }
 
     final requestPoints = [
-      RequestPoint(routePoints.first, RequestPointType.Waypoint, null, null),
+      RequestPoint(routePoints.first, RequestPointType.Waypoint, null, null, null),
       ...(routePoints.sublist(1, routePoints.length - 1).map(
-          (it) => RequestPoint(it, RequestPointType.Viapoint, null, null))),
-      RequestPoint(routePoints.last, RequestPointType.Waypoint, null, null)
+          (it) => RequestPoint(it, RequestPointType.Viapoint, null, null, null))),
+      RequestPoint(routePoints.last, RequestPointType.Waypoint, null, null, null)
     ];
 
     switch (currentRoutingType) {
