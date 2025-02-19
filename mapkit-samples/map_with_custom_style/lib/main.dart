@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:common/common.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:yandex_maps_mapkit/init.dart' as init;
@@ -14,8 +13,10 @@ Future<String> _readJsonFile(String filePath) async {
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await dotenv.load(fileName: ".env");
-  await init.initMapkit(apiKey: dotenv.env["API_KEY"]!);
+  /**
+   * Replace "your_api_key" with a valid developer key.
+   */
+  await init.initMapkit(apiKey: "your_api_key");
   final mapStyleJson = await _readJsonFile("assets/map_style.json");
 
   runApp(

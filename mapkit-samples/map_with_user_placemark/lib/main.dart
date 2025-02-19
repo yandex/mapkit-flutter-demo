@@ -2,7 +2,6 @@ import 'dart:math' as math;
 
 import 'package:common/map/flutter_map_widget.dart';
 import 'package:common/resources/theme.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter/material.dart';
 import 'package:map_with_user_placemark/camera/camera_manager.dart';
 import 'package:map_with_user_placemark/dialogs/dialogs_factory.dart';
@@ -16,8 +15,10 @@ import 'package:yandex_maps_mapkit/mapkit_factory.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await dotenv.load(fileName: ".env");
-  await init.initMapkit(apiKey: dotenv.env["API_KEY"]!);
+  /**
+   * Replace "your_api_key" with a valid developer key.
+   */
+  await init.initMapkit(apiKey: "your_api_key");
 
   runApp(
     MaterialApp(

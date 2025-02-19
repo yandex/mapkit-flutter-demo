@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:common/common.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter/material.dart';
 import 'package:map_offline/common/managers/offline_cache_error/offline_cache_error_manager.dart';
 import 'package:map_offline/common/managers/region_list_updates/region_list_updates_manager.dart';
@@ -25,8 +24,10 @@ import 'features/settings/state/settings_ui_state.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await dotenv.load(fileName: ".env");
-  await init.initMapkit(apiKey: dotenv.env["API_KEY"]!);
+  /**
+   * Replace "your_api_key" with a valid developer key.
+   */
+  await init.initMapkit(apiKey: "your_api_key");
 
   final offlineCacheManager = mapkit.offlineCacheManager;
   final settingsManager = SettingsManager(offlineCacheManager);

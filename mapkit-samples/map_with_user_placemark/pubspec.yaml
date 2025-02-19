@@ -40,7 +40,6 @@ dependencies:
 
   common:
     path: ../common
-  flutter_dotenv: ^5.1.0
 
 dev_dependencies:
   flutter_test:

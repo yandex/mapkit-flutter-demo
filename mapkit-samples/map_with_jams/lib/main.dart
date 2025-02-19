@@ -2,7 +2,6 @@ import 'package:common/map/flutter_map_widget.dart';
 import 'package:common/resources/dimensions.dart';
 import 'package:common/resources/theme.dart';
 import 'package:common/utils/extension_utils.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter/material.dart';
 import 'package:map_with_jams/data/geometry_provider.dart';
 import 'package:map_with_jams/traffic/traffic_lights_images_provider.dart';
@@ -15,8 +14,10 @@ import 'package:flutter/widgets.dart' as dart_widgets;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await dotenv.load(fileName: ".env");
-  await init.initMapkit(apiKey: dotenv.env["API_KEY"]!);
+  /**
+   * Replace "your_api_key" with a valid developer key.
+   */
+  await init.initMapkit(apiKey: "your_api_key");
 
   runApp(
     MaterialApp(

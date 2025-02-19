@@ -1,5 +1,4 @@
 import 'package:common/common.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter/material.dart';
 import 'package:map_with_panorama/listeners/layers_geo_object_tap_listener.dart';
 import 'package:map_with_panorama/utils/extension_utils.dart';
@@ -12,8 +11,10 @@ import 'package:yandex_maps_mapkit/widgets.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await dotenv.load(fileName: ".env");
-  await init.initMapkit(apiKey: dotenv.env["API_KEY"]!);
+  /**
+   * Replace "your_api_key" with a valid developer key.
+   */
+  await init.initMapkit(apiKey: "your_api_key");
 
   runApp(
     MaterialApp(

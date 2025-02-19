@@ -4,7 +4,6 @@ import 'package:common/listeners/map_input_listener.dart';
 import 'package:common/map/flutter_map_widget.dart';
 import 'package:common/resources/theme.dart';
 import 'package:common/utils/snackbar.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter/material.dart';
 import 'package:map_routing/data/geometry_provider.dart';
 import 'package:map_routing/data/routing_type.dart';
@@ -19,8 +18,10 @@ import 'package:yandex_maps_mapkit/transport.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await dotenv.load(fileName: ".env");
-  await init.initMapkit(apiKey: dotenv.env["API_KEY"]!);
+  /**
+   * Replace "your_api_key" with a valid developer key.
+   */
+  await init.initMapkit(apiKey: "your_api_key");
 
   runApp(
     MaterialApp(

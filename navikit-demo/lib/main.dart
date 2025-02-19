@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:navikit_flutter_demo/core/resources/theme.dart';
 import 'package:navikit_flutter_demo/domain/navigation/navigation_manager.dart';
 import 'package:navikit_flutter_demo/domain/navigation/navigation_suspender_manager.dart';
@@ -14,8 +13,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await initApplicationDeps();
-  await dotenv.load(fileName: ".env");
-  await init.initMapkit(apiKey: dotenv.env["API_KEY"]!);
+  /**
+   * Replace "your_api_key" with a valid developer key.
+   */
+  await init.initMapkit(apiKey: "your_api_key");
 
   runApp(
     MaterialApp(
