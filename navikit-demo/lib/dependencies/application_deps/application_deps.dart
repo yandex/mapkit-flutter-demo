@@ -94,10 +94,8 @@ final class ApplicationDepsScope implements ApplicationDeps {
   @override
   Future<void> initDependencies() async {
     // Initialize there dependencies that must be initialized before widgets are rendered
-    final futures = [
-      _keyValueStorage.initStorage(),
-    ];
-    Future.wait(futures);
+    final futures = [_keyValueStorage.initStorage()];
+    await Future.wait(futures);
   }
 
   @override
