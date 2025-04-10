@@ -21,7 +21,7 @@ void main() async {
   /**
    * Replace "your_api_key" with a valid developer key.
    */
-  await init.initMapkit(apiKey: "your_api_key");
+  init.initMapkit(apiKey: "your_api_key");
 
   runApp(
     MaterialApp(
@@ -141,11 +141,6 @@ class _MapkitFlutterAppState extends State<MapkitFlutterApp> {
       cluster.appearance
         ..setView(
           ViewProvider(
-            configurationFactory: (mediaQuery) => ViewConfiguration(
-              physicalConstraints: BoxConstraints.tight(mediaQuery.size),
-              logicalConstraints: BoxConstraints.tight(mediaQuery.size),
-              devicePixelRatio: mediaQuery.devicePixelRatio,
-            ),
             builder: () => ClusterWidget(placemarkTypes: placemarkTypes),
           ),
         )
