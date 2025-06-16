@@ -18,7 +18,7 @@ void main() async {
   /**
    * Replace "your_api_key" with a valid developer key.
    */
-  init.initMapkit(apiKey: "your_api_key");
+  await init.initMapkit(apiKey: "your_api_key");
 
   runApp(
     MaterialApp(
@@ -91,7 +91,7 @@ class _MapkitFlutterAppState extends State<MapkitFlutterApp>
                   ..start();
 
                 _userLocationLayer = mapkit.createUserLocationLayer(mapWindow)
-                  ..headingEnabled = true
+                  ..headingModeActive = true
                   ..setVisible(true)
                   ..setObjectListener(this);
               },

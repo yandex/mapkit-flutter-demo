@@ -21,7 +21,7 @@ void main() async {
   /**
    * Replace "your_api_key" with a valid developer key.
    */
-  init.initMapkit(apiKey: "your_api_key");
+  await init.initMapkit(apiKey: "your_api_key");
 
   runApp(
     MaterialApp(
