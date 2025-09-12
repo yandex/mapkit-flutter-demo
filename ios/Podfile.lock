@@ -1,0 +1,50 @@
+PODS:
+  - Flutter (1.0.0)
+  - permission_handler_apple (9.3.0):
+    - Flutter
+  - shared_preferences_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+  - yandex_maps_navikit (1.0.0):
+    - Flutter
+    - YandexMapsMobile (= 4.19.0-beta-navikit-flutter)
+  - YandexMapsMobile (4.19.0-beta-navikit-flutter)
+  - YMKStylingAutomotiveNavigation (4.19.0)
+  - YMKStylingRoadEvents (4.19.0)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
+  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
+  - yandex_maps_navikit (from `.symlinks/plugins/yandex_maps_navikit/ios`)
+  - YMKStylingAutomotiveNavigation (= 4.19.0)
+  - YMKStylingRoadEvents (= 4.19.0)
+
+SPEC REPOS:
+  trunk:
+    - YandexMapsMobile
+    - YMKStylingAutomotiveNavigation
+    - YMKStylingRoadEvents
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  permission_handler_apple:
+    :path: ".symlinks/plugins/permission_handler_apple/ios"
+  shared_preferences_foundation:
+    :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
+  yandex_maps_navikit:
+    :path: ".symlinks/plugins/yandex_maps_navikit/ios"
+
+SPEC CHECKSUMS:
+  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
+  permission_handler_apple: 9878588469a2b0d0fc1e048d9f43605f92e6cec2
+  shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
+  yandex_maps_navikit: 967eac5e6cae9c28c7e8053307a1618cbf0f9a4a
+  YandexMapsMobile: 890c78bff8b8dbd590f460668820c4d78d4b815e
+  YMKStylingAutomotiveNavigation: 94caad584057edeab6ff8d1316dec68c338a79ba
+  YMKStylingRoadEvents: e8f3eca83d4cf627eeadd134ce072530ea59b6c9
+
+PODFILE CHECKSUM: 22e33fcf81d73c3550190f5d1b574c715494e64a
+
+COCOAPODS: 1.16.2
