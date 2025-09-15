@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  yandex_maps_mapkit: 4.19.0-beta
+  yandex_maps_mapkit: 4.22.0-beta
 
 dev_dependencies:
   flutter_test:

@@ -17,7 +17,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  yandex_maps_navikit: 4.19.0-beta
+  yandex_maps_navikit: 4.22.0-beta
     # When depending on this package from a real application you should use:
     #   yandex_maps: ^x.y.z
     # See https://dart.dev/tools/pub/dependencies#version-constraints
