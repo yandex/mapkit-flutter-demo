@@ -31,8 +31,8 @@ target 'Runner' do
   use_frameworks!
   use_modular_headers!
 
-  pod 'YMKStylingAutomotiveNavigation', '4.17.2'
-  pod 'YMKStylingRoadEvents', '4.17.2'
+  pod 'YMKStylingAutomotiveNavigation', '4.25.0'
+  pod 'YMKStylingRoadEvents', '4.25.0'
 
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
   target 'RunnerTests' do

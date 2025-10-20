@@ -23,13 +23,13 @@ final class SimulationManagerImpl implements SimulationManager {
   @override
   void startSimulation(DrivingRoute route) {
     _locationSimulator =
-        mapkit.createLocationSimulatorWithGeometry(route.geometry)
-          ..subscribeForSimulatorEvents(_locationSimulatorListener)
-          ..speed = _simulationSpeed;
-
+        mapkit.createLocationSimulator()
+          ..subscribeForSimulatorEvents(_locationSimulatorListener);
     _locationSimulator?.let((it) {
       mapkit.setLocationManager(it);
-      it.startSimulation(SimulationAccuracy.Coarse);
+      it.startSimulation(
+        [SimulationSettings(route.geometry, LocationSettingsFactory.coarseSettings())]);
+      it.speed = _simulationSpeed;
       _simulationActive.add(true);
     });
   }
