@@ -398,9 +398,9 @@ class _MapkitFlutterAppState extends State<MapkitFlutterApp> {
         tilt: map.cameraPosition.tilt,
       );
 
-      map.moveWithAnimation(
+      map.move(
         cameraPosition,
-        CameraAnimationProvider.defaultCameraAnimation,
+        animation: CameraAnimationProvider.defaultCameraAnimation,
       );
     });
   }

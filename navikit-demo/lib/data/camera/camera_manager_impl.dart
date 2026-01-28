@@ -50,9 +50,9 @@ final class CameraManagerImpl implements CameraManager {
         tilt: 0.0,
       );
 
-      map.moveWithAnimation(
+      map.move(
         newCameraPosition,
-        CameraAnimations.defaultAnimation,
+        animation: CameraAnimations.defaultAnimation,
         cameraCallback: MapCameraCallback(onMoveFinished: (_) {}),
       );
     });
@@ -88,9 +88,9 @@ final class CameraManagerImpl implements CameraManager {
       ),
     );
 
-    _mapWindow.map.moveWithAnimation(
+    _mapWindow.map.move(
       newCameraPosition,
-      CameraAnimations.defaultAnimation,
+      animation: CameraAnimations.defaultAnimation,
       cameraCallback: MapCameraCallback(onMoveFinished: (_) {}),
     );
   }

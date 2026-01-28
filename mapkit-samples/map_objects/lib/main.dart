@@ -222,10 +222,10 @@ class _MapkitFlutterAppState extends State<MapkitFlutterApp> {
                           );
                           // Focus camera on polyline
                           _mapWindow?.map.let((map) {
-                            map.moveWithAnimation(
+                            map.move(
                               map.cameraPositionForGeometry(geometry),
-                              const mapkit.Animation(
-                                mapkit.AnimationType.Smooth,
+                              animation: const mapkit.Animation(
+                                type: mapkit.AnimationType.Smooth,
                                 duration: 1.0,
                               ),
                             );
@@ -240,10 +240,10 @@ class _MapkitFlutterAppState extends State<MapkitFlutterApp> {
                           );
                           // Focus camera on polygon
                           _mapWindow?.map.let((map) {
-                            map.moveWithAnimation(
+                            map.move(
                               map.cameraPositionForGeometry(geometry),
-                              const mapkit.Animation(
-                                mapkit.AnimationType.Smooth,
+                              animation: const mapkit.Animation(
+                                type: mapkit.AnimationType.Smooth,
                                 duration: 1.0,
                               ),
                             );

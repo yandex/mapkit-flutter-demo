@@ -302,9 +302,9 @@ class _MapkitFlutterAppState extends State<MapkitFlutterApp> {
           : map
               .cameraPositionForGeometry(Geometry.fromBoundingBox(boundingBox));
 
-      map.moveWithAnimation(
+      map.move(
         cameraPosition,
-        CameraAnimationProvider.defaultCameraAnimation,
+        animation: CameraAnimationProvider.defaultCameraAnimation,
       );
     });
   }

@@ -55,9 +55,9 @@ final class CameraManager {
         tilt: 0.0,
       );
 
-      map.moveWithAnimation(
+      map.move(
         newCameraPosition,
-        CameraAnimationProvider.defaultCameraAnimation,
+        animation: CameraAnimationProvider.defaultCameraAnimation,
       );
     });
   }
