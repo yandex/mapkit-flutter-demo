@@ -134,24 +134,24 @@ class _MapkitFlutterAppState extends State<MapkitFlutterApp>
 
     pinIcon.setIcon(
       iconImageProvider,
-      const IconStyle(
+      name: "icon",
+      style: const IconStyle(
         anchor: math.Point(0.0, 0.0),
         rotationType: RotationType.Rotate,
         zIndex: 0.0,
         scale: 0.75,
       ),
-      name: "icon",
     );
 
     pinIcon.setIcon(
       pinIconImageProvider,
-      const IconStyle(
+      name: "pin",
+      style: const IconStyle(
         anchor: math.Point(0.5, 0.5),
         rotationType: RotationType.Rotate,
         zIndex: 1.0,
         scale: 1.0,
       ),
-      name: "pin",
     );
 
     userLocationView.accuracyCircle.fillColor = Colors.blue.withAlpha(100);

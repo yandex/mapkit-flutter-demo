@@ -378,16 +378,15 @@ class _MapkitFlutterAppState extends State<MapkitFlutterApp> {
         image_provider.ImageProvider.fromImageProvider(
           const AssetImage("assets/ic_dollar_pin.png"),
         ),
-        const mapkit.IconStyle(anchor: math.Point(0.5, 1.0), scale: 2.0),
         name: "pin",
+        style: const mapkit.IconStyle(anchor: math.Point(0.5, 1.0), scale: 2.0),
       )
       ..setIcon(
         image_provider.ImageProvider.fromImageProvider(
           const AssetImage("assets/ic_circle.png"),
         ),
-        const mapkit.IconStyle(
-            anchor: math.Point(0.5, 0.5), flat: true, scale: 0.2),
         name: "point",
+        style: const mapkit.IconStyle(anchor: math.Point(0.5, 0.5), flat: true, scale: 0.2),
       );
   }
 
@@ -398,10 +397,11 @@ class _MapkitFlutterAppState extends State<MapkitFlutterApp> {
 
     animatedPlacemark.useAnimation()
       ..setIcon(
-          image_provider.AnimatedImageProvider.fromAsset(
-            "assets/animation.png",
-          ),
-          const mapkit.IconStyle(scale: 1.0))
+        image_provider.AnimatedImageProvider.fromAsset(
+          "assets/animation.png",
+        ),
+        const mapkit.IconStyle(scale: 1.0),
+      )
       ..play();
   }
 
