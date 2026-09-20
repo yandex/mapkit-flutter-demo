@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace "com.yandex.navikit_flutter_demo"
-    compileSdkVersion 35
+    compileSdkVersion 36
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_21
@@ -27,7 +27,7 @@ android {
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion 26
-        targetSdkVersion 35
+        targetSdkVersion 36
         versionCode flutter.versionCode
         versionName flutter.versionName
     }
@@ -54,6 +54,6 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:21.1.0'
     implementation 'com.google.android.play:integrity:1.4.0'
 
-    implementation "com.yandex.mapkit.styling:automotivenavigation:4.42.0"
-    implementation "com.yandex.mapkit.styling:roadevents:4.42.0"
+    implementation "com.yandex.mapkit.styling:automotivenavigation:4.45.0"
+    implementation "com.yandex.mapkit.styling:roadevents:4.45.0"
 }
